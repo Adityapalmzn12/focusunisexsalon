@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1076237725775",
+    "project_id": "focus-unisex-salon",
+    "storage_bucket": "focus-unisex-salon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076237725775:android:81d135ac85d3eb1382ba3a",
+        "android_client_info": {
+          "package_name": "com.example.focusunisexsalon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076237725775-405lv1et75a6j3f5ff97h1thg9ts35m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvGAYSQGwXTEjgdJNDibL-3vEo6hyEZrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076237725775-405lv1et75a6j3f5ff97h1thg9ts35m1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
