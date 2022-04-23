@@ -71,14 +71,18 @@ class _Appointment2State extends State<Appointment2>
 
       appBar: AppBar(
         backgroundColor: UIData.mainColor,
-        leading: IconButton(
-          onPressed: (){
-            Scaffold.of(context).openDrawer();
-          },
-         icon: Icon(
-            Icons.menu,
-            color: UIData.lightColor,
-          ),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              onPressed: (){
+                Scaffold.of(context).openDrawer();
+              },
+             icon: Icon(
+                Icons.menu,
+                color: UIData.lightColor,
+              ),
+            );
+          }
         ),
         title: Text("Appointments"),
         centerTitle: true,

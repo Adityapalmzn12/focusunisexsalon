@@ -14,9 +14,14 @@ class Sidebar extends StatelessWidget {
       child: ListView.builder(
           itemCount: sidebar.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              leading: item2[index],
-              title: Text(sidebar[index]),
+            return InkWell(
+              onTap: (){
+                // sidebar[index];
+              },
+              child: ListTile(
+                leading: item2[index],
+                title: Text(sidebar[index]),
+              ),
             );
           }
       )
