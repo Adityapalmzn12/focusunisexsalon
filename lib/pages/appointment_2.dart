@@ -77,10 +77,16 @@ class _Appointment2State extends State<Appointment2>
               onPressed: (){
                 Scaffold.of(context).openDrawer();
               },
-             icon: Icon(
-                Icons.menu,
-                color: UIData.lightColor,
-              ),
+             icon: InkWell(
+               onTap: (){
+                 Navigator.pop(context);
+               },
+               child: Icon(
+                  Icons.arrow_back,
+                  color: UIData.lightColor,
+
+                ),
+             ),
             );
           }
         ),

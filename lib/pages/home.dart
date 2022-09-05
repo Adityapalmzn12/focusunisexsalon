@@ -1,5 +1,7 @@
 //Home
 
+import 'package:beautysalon/helper/pref/sharedpref.dart';
+
 import '/pages/Bottom/bottm.dart';
 import '/pages/book.dart';
 import '/pages/book_appointment_1.dart';
@@ -24,36 +26,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   String? userName;
   String? email;
   String? profileImg;
 
-  currentUserProfile() async {
-    final firebaseUser = FirebaseAuth.instance.currentUser;
-    if (firebaseUser != null)
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(firebaseUser.uid)
-          .get()
-          .then((ds) {
-        userName = ds.data()?['username']??"";
-        email = ds.data()?['email']??"";
-        profileImg = ds.data()?['image']??"";
-      }).catchError((e) {
-        print(e);
-      });
-  }
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  final googleSignIn = GoogleSignIn();
-  logOut() async {
-    await auth.signOut();
-    googleSignIn.disconnect();
-    setState(() {});
-    print("user diconnected");
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(
+      Duration.zero,
+          () {
+            userName=  SharedPref().getLocalData("phone");
+      },
+    );
 
-    Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => Login()), (route) => false);
   }
 
   @override
@@ -81,26 +70,19 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: <Widget>[
-          FutureBuilder(
-              future: currentUserProfile(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState != ConnectionState.done)
-                  return Text("Loading please wait ");
-
-                return Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 8, right: 10),
-                  child: Container(
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(profileImg??""),
-                      ),
-                    ),
-                  ),
-                );
-              }),
+      Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 8, right: 10),
+      child: Container(
+        child: GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.transparent,
+            backgroundImage: NetworkImage(profileImg??""),
+          ),
+        ),
+      ),
+    )
         ],
       ),
       body: Align(
@@ -172,7 +154,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/braid.png",
                           columnTxt: "Braids",
@@ -194,7 +178,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/blow.png",
                           columnTxt: "Blowdry",
@@ -205,7 +191,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/haircut.png",
                           columnTxt: "Haircut",
@@ -222,7 +210,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/relaxer.png",
                           columnTxt: "Relaxer",
@@ -233,7 +223,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/shampoo.png",
                           columnTxt: "Shampoo",
@@ -244,7 +236,8 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+    Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => Bookapp1())),
                         child: MyColumn(
                           columnImg: "images/nail.png",
                           columnTxt: "Manicure",
@@ -255,7 +248,9 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: InkWell(
                         onTap: () =>
-                            Navigator.pushNamed(context, UIData.bookPageRoute),
+    Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => Bookapp1())),
+                            // Navigator.pushNamed(context, UIData.bookPageRoute),
                         child: MyColumn(
                           columnImg: "images/more.png",
                           columnTxt: "More",
@@ -449,27 +444,20 @@ class _HomePageState extends State<HomePage> {
           color: UIData.mainColor,
           height: 150,
           width: 310,
-          child: FutureBuilder(
-              future: currentUserProfile(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState != ConnectionState.done)
-                  return Text("Loading please wait ");
-
-                return DrawerHeader(
-                  decoration: BoxDecoration(color: UIData.mainColor),
-                  child: ListTile(
-                    tileColor: UIData.mainColor,
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      backgroundImage: NetworkImage( profileImg??'https://avatars.githubusercontent.com/u/9919?s=40&v=4'),
-                    ),
-                    title: Text(
-                      email.toString(),
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                );
-              }),
+          child:  DrawerHeader(
+            decoration: BoxDecoration(color: UIData.mainColor),
+            child: ListTile(
+              tileColor: UIData.mainColor,
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                backgroundImage: NetworkImage( profileImg??'https://avatars.githubusercontent.com/u/9919?s=40&v=4'),
+              ),
+              title: Text(
+                email.toString(),
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          )
         ),
         Flexible(
           child: Container(

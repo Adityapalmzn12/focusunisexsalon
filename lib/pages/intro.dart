@@ -2,6 +2,8 @@
 
 import 'dart:async';
 
+import 'package:beautysalon/helper/pref/sharedpref.dart';
+
 import '/pages/home.dart';
 import '/pages/home_page1.dart';
 import '/pages/login.dart';
@@ -59,6 +61,14 @@ class _IntroPageState extends State<IntroPage> {
             ),
             ElevatedButton(
               onPressed: () {
+                // if(SharedPref().getLocalData('phone')==null){
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => Login()));
+                // }
+                // else{
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => HomePage()));
+                // }
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Login()));
 

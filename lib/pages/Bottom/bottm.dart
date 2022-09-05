@@ -40,11 +40,11 @@ class _NavbarState extends State<Navbar> {
 
       // ),
 
-      Icon(
-        Icons.message,
-        size: 30,
-        color: UIData.mainColor,
-      ),
+      // Icon(
+      //   Icons.message,
+      //   size: 30,
+      //   color: UIData.mainColor,
+      // ),
 
       Icon(
         Icons.add,
@@ -52,11 +52,11 @@ class _NavbarState extends State<Navbar> {
         color: UIData.mainColor,
       ),
 
-      Icon(
-        Icons.favorite,
-        color: UIData.mainColor,
-        size: 30,
-      ),
+      // Icon(
+      //   Icons.favorite,
+      //   color: UIData.mainColor,
+      //   size: 30,
+      // ),
 
       Icon(
         Icons.person,
@@ -128,21 +128,25 @@ class _NavbarState extends State<Navbar> {
 
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => HomePage()));
-        } else if (index1 == 1) {
-          print("domaodoo smos oamok indexx $index1");
-
-          print("domaodoo smos nnnenweunun  page $pageindex");
-
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ChatUser()));
-        } else if (index1 == 2) {
-          print("domaodoo smos oamok indexx $index1");
-
-          print("domaodoo smos nnnenweunun  page $pageindex");
-
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => bar()));
-        } else if (index1 == 3) {
+        }
+        // else if (index1 == 1) {
+        //   print("domaodoo smos oamok indexx $index1");
+        //
+        //   print("domaodoo smos nnnenweunun  page $pageindex");
+        //
+        //   Navigator.push(
+        //       context, MaterialPageRoute(builder: (context) => ChatUser()));
+        // }
+        // else if (index1 == 2)
+        // {
+        //   print("domaodoo smos oamok indexx $index1");
+        //
+        //   print("domaodoo smos nnnenweunun  page $pageindex");
+        //
+        //   Navigator.push(
+        //       context, MaterialPageRoute(builder: (context) => bar()));
+        // }
+        else if (index1 == 2) {
           print("domaodoo smos oamok indexx $index1");
 
           print("domaodoo smos nnnenweunun  page $pageindex");
@@ -151,7 +155,7 @@ class _NavbarState extends State<Navbar> {
 
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Appointment2()));
-        } else if (index1 == 4) {
+        } else if (index1 == 3) {
           print("domaodoo smos oamok indexx $index1");
 
           print("domaodoo smos nnnenweunun  page $pageindex");

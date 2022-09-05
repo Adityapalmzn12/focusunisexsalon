@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, prefer_const_constructors, avoid_print, unnecessary_null_comparison, dead_code, sized_box_for_whitespace, avoid_unnecessary_containers, use_key_in_widget_constructors
+import 'package:beautysalon/helper/pref/sharedpref.dart';
 import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
 
 import '/pages/home.dart';
@@ -68,17 +69,25 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Visibility(
-                child: TextField(
-                  controller: otpController,
-                  decoration: InputDecoration(
-                    hintText: 'OTP',
-                    prefix: Padding(
-                      padding: EdgeInsets.all(4),
-                      child: Text(''),
+                child:  Padding(
+                  padding: EdgeInsets.only(left: 25.0, right: 25.0,top: 20.00),
+                  child: TextField(
+                    controller: otpController,
+                    decoration: InputDecoration(
+                      hintText: 'OTP',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+
+
+                      ),
+                      prefix: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Text(''),
+                      ),
                     ),
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
                   ),
-                  maxLength: 6,
-                  keyboardType: TextInputType.number,
                 ),
                 visible: otpVisibility,
               ),
@@ -133,7 +142,7 @@ class _LoginState extends State<Login> {
 
     await auth.signInWithCredential(credential).whenComplete(
           () {
-
+            SharedPref().saveLocalData("phone", phoneController.text);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(

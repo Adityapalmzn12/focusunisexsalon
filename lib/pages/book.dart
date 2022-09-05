@@ -129,33 +129,33 @@ class _BookPageState extends State<BookPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: 18),
-                      Text("Available Slots",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600)),
-                      SizedBox(height: 18),
-                      Container(
-                        alignment: Alignment.center,
-                        child: Wrap(
-                          runSpacing: 15,
-                          spacing: 2,
-                          children: <Widget>[
-                            buttonTime("9:30 - 10:30 AM", Colors.white,
-                                Colors.black54),
-                            buttonTime("10:30 - 11:45 AM", UIData.mainColor,
-                                Colors.white),
-                            buttonTime("12:00 - 1:30 PM", Colors.white,
-                                Colors.black54),
-                            buttonTime(
-                                "2:00 - 4:30 PM", Colors.white, Colors.black54),
-                            buttonTime(
-                                "5:30 - 6:30 PM", Colors.white, Colors.black54),
-                            buttonTime(
-                                "6:30 - 7:30 PM", Colors.white, Colors.black54),
-                          ],
-                        ),
-                      ),
+                      // Text("Available Slots",
+                      //     maxLines: 1,
+                      //     overflow: TextOverflow.ellipsis,
+                      //     style: TextStyle(
+                      //         fontSize: 18, fontWeight: FontWeight.w600)),
+                      // SizedBox(height: 18),
+                      // Container(
+                      //   alignment: Alignment.center,
+                      //   child: Wrap(
+                      //     runSpacing: 15,
+                      //     spacing: 2,
+                      //     children: <Widget>[
+                      //       buttonTime("9:30 - 10:30 AM", Colors.white,
+                      //           Colors.black54),
+                      //       buttonTime("10:30 - 11:45 AM", UIData.mainColor,
+                      //           Colors.white),
+                      //       buttonTime("12:00 - 1:30 PM", Colors.white,
+                      //           Colors.black54),
+                      //       buttonTime(
+                      //           "2:00 - 4:30 PM", Colors.white, Colors.black54),
+                      //       buttonTime(
+                      //           "5:30 - 6:30 PM", Colors.white, Colors.black54),
+                      //       buttonTime(
+                      //           "6:30 - 7:30 PM", Colors.white, Colors.black54),
+                      //     ],
+                      //   ),
+                      // ),
                       SizedBox(height: 25),
                       Text("Choose Hair Specialists",
                           maxLines: 1,

@@ -20,15 +20,15 @@ var image = [
 
 var sidebar = [
   "My Account",
-  "Terms & Conditions",
-  "Privacy Policy",
-  "Select Language",
   "About us",
   "Call to Salon",
   "Open Web Site",
   "Open Instagram page",
-  "Share This page",
-  "Black mode",
+  // "Terms & Conditions",
+  // "Privacy Policy",
+  // "Select Language",
+  "Share App",
+  // "Black mode",
   "Log out"
 ];
 
@@ -36,8 +36,15 @@ var item2 = [
  Icon(
     Icons.account_circle_outlined,
     color: UIData.mainColor,
-  ), 
-
+  ),
+  Icon(
+    Icons.info,
+    color: UIData.mainColor,
+  ),
+  Icon(
+    Icons.phone,
+    color: UIData.mainColor,
+  ),
   Icon(
     Icons.ten_k_outlined,
     color: UIData.mainColor,
@@ -46,18 +53,12 @@ var item2 = [
     Icons.shield_rounded,
     color: UIData.mainColor,
   ),
-  Icon(
-    Icons.info,
-    color: UIData.mainColor,
-  ),
+
   Icon(
     Icons.language,
     color: UIData.mainColor,
   ),
-  Icon(
-    Icons.phone,
-    color: UIData.mainColor,
-  ),
+
   Icon(
     Icons.web,
     color: UIData.mainColor,
